@@ -6,9 +6,9 @@ class ConsoleApp1
     static void Main()
     {
         string name;
-        System.Console.WriteLine("Пожалуйста, введите ваше имя: ");
-        name = System.Console.ReadLine();
-        System.Console.WriteLine("Здравствуйте, " + name + "!");
+        Console.Write("Enter your name, please: ");
+        name = Console.ReadLine();
+        Console.WriteLine("Hello, " + name + "!");
     }
 }
 ```
@@ -39,7 +39,7 @@ class ConsoleApp1
 
 ---
 
-`System.Console.WriteLine("Пожалуйста, введите ваше имя: ")` - вызов метода `WriteLine()` класса `Console` пространства имен `System`. 
+`System.Console.WriteLine("Enter your name, please: ")` - вызов метода `WriteLine()` класса `Console` пространства имен `System`. 
 
 В консоль выводится значение аргумента, полученного методом, а следующий вывод будет осуществляться на новой строке.
 
@@ -53,9 +53,7 @@ class ConsoleApp1
 
 ---
 
-`System.Console.WriteLine("Здравствуйте, " + name + "!")` выводит результат выражения (конкатенация строк), поступившего в качестве аргумента.
-
----
+`System.Console.WriteLine("Hello, " + name + "!")` выводит результат выражения (конкатенация строк), поступившего в качестве аргумента.
 
 ## Пространства имен
 
@@ -74,9 +72,70 @@ class ConsoleApp1
     static void Main()
     {
         string name;
-        Console.WriteLine("Пожалуйста, введите ваше имя: ");
+        Console.Write("Enter your name, please: ");
         name = Console.ReadLine();
-        Console.WriteLine("Здравствуйте, " + name + "!");
+        Console.WriteLine("Hello, " + name + "!");
     }
 }
 ```
+
+## Кодинг и компиляция
+
+Работа с платформой .NET предполагает разработку программ в среде Microsoft Visual Studio (IDE).
+
+IDE у меня пока что вызывает чувство дискомфорта.
+
+Незнакомый интерфейс с большим набором фич. Надо отдельно разбираться и привыкать, тогда как главная задача сейчас - изучить основы C#. Плюс , вызывает недоумение куча дополнительных файлов в директории проекта даже у банального "hello, world".
+
+В общем, не привык работать в IDE, и нужно будет отдельно разобраться :) 
+
+Для начала, подкрутил размер шрифтов интерфейса:
+- идем в `Tools > Options > Environment > Fonts and Colors`;
+- настраиваем шрифты для Text Editor и Environment (скрины ниже).
+
+<img src="pics/fonts_where.png" />
+<img src="pics/fonts_editor.png" />
+<img src="pics/fonts_envir.png" />
+
+Что до кодинга, тут буду тестировать различные подходы. 
+
+Для изучения синтаксиса полезно разбирать и самостоятельно набирать код примеров, так что в старом-добром Vim'е работать буду в любом случае. 
+
+Я по-честному создал проект и позапускал код без дебага по гайдам из учебников.
+
+![[pics/ide_exp.png]]
+
+Тем не  менее, для сравнительно простых примеров, склоняюсь использовать только Vim + консоль:
+- набрал код в редакторе;
+- скомпилировал с помощью `csc.exe`;
+- тут же запустил пример в консоли и сделал скриншоты/GIF'ки для заметки.
+
+#### csc.exe и командная строка
+
+Чтобы запускать компилятор из командной строки, открытой в любой директории, нужно добавить путь к файлу `csc.exe` в переменных окружения.
+
+Расположение файла определяем с через поиск в проводнике:
+
+<img src="pics/csc_exe_search.png" />
+
+В панели управления (Control Panel): System and Security > System > Advanced settings
+
+<img src="pics/control_panel1.png" />
+
+В открывшемся окне выбираем Advanced > Environment Variables.
+
+<img src="pics/control_panel2.png" />
+
+Переходим к редактированию переменных окружения:
+
+<img src="pics/control_panel3.png" />
+
+Добавляем в поле путь к директории с файлом `csc.exe`, не забываем добавить точку с запятой в конце:
+
+<img src="pics/control_panel4.png" />
+
+Теперь можно запускать компилятор в консоли, вызванной в любой директории.
+
+<img src="pics/csc_console_exmp.png" />
+
+---
